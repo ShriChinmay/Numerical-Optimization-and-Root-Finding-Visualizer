@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib
+matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 import sympy as sp
 from matplotlib.animation import FuncAnimation
@@ -527,6 +529,7 @@ def root_finder1(funcn_str, left, right, choice, domleft=-100, domright=100):
 
         return negplot, posplot, negvertplot, posvertplot, horplot, midptplot
     animplot=FuncAnimation(fig=fig, frames=4*len(xn)+1, interval=1000, repeat=False, func=update_root1)
+    
     plt.show()
 
 def root_finder2(funcn_str, x0):
@@ -732,7 +735,7 @@ def gradient_descent_anim(funcn_str, a, step=0.01):
         return pathplot, pointplot
 
     anim = FuncAnimation(fig,update,frames=len(xlist) + 1, interval=50, blit=True,repeat=False)
-
+    
     plt.show()
 
 
@@ -749,7 +752,7 @@ def choose1():
 def choose_root_algo():
     print("-----------------------------------------------------------\n")
     print("Choose root finding algorithm \n1. Bisection algorithm \n2. Regula-falsi algorithm \n3. Newton-Raphson algortihm")
-    inp=int(input("Enter: "))
+    inp=int(input("Enter 1/2/3: "))
     if inp!=1 and inp!=2 and inp!=3:
         print("Invalid Entry")
         choose_root_algo()
@@ -759,7 +762,7 @@ def choose_root_algo():
 def choose_opt_algo():
     print("-----------------------------------------------------------\n")
     print("Choose optimisation algorithm \n1. Golden Section algorithm \n2. Gradient Descent algorithm")
-    inp=int(input("Enter: "))
+    inp=int(input("Enter 1/2: "))
     if inp!=1 and inp!=2:
         print("Invalid Entry")
         choose_opt_algo()
